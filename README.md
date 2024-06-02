@@ -15,29 +15,27 @@ To run this program, you can use Remix, an online Solidity IDE. To get started, 
 Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., MyToken.sol). Copy and paste the following code into the file:
 // code:
 
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.18;
+    // SPDX-License-Identifier: MIT
+    pragma solidity ^0.8.18;
 
-contract MyToken {
-    string public Mytoken_Name = "EARTH";
-    string public Mytoken_abbrv = "ER";
-    uint public total_Supply = 0;
+    contract MyToken {
+        string public Mytoken_Name = "EARTH";
+        string public Mytoken_abbrv = "ER";
+        uint public total_Supply = 0;
 
-    mapping(address => uint)public balance;
+        mapping(address => uint)public balance;
 
-    function mint(address Add , uint Val) public{
-        total_Supply += Val;
-        balance[Add] += Val;
+        function mint(address Add , uint Val) public{
+            total_Supply += Val;
+            balance[Add] += Val;
+        }
 
-    }
-
-    function burning(address Add, uint Val) public{
-        if(balance[Add] >= Val){
+        function burning(address Add, uint Val) public{
+            if(balance[Add] >= Val){
             total_Supply -= Val;
             balance[Add] -= Val;
         }
-    }
-}
+    }}
 
 Compiling the Code
 
@@ -52,3 +50,7 @@ Once the contract is deployed, we can interact with it by using the mint and bur
 Minting Tokens: To mint new tokens, enter the address and the amount of tokens we want to mint, then click the "mint" button.
 Burning Tokens: To burn existing tokens, enter the address and the amount of tokens we want to burn, then click the "burning" button.
 we can also check the total supply of tokens and individual balances using the total_Supply and balance public variables.
+
+Author
+
+Hritik Singh
